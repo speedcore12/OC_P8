@@ -16,6 +16,9 @@ module.exports = {
       fontFamily: {
         dos: ['"Press Start 2P"', 'monospace'],
       },
+      animation: {
+        'spin-slow': 'spin 15s linear infinite',
+      },      
     },
   },
   plugins: [],

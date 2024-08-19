@@ -1,6 +1,8 @@
 import './App.css';
 import Nav from './components/nav';
 import Intro from './components/intro';
+import Motivation from './components/motiv';
+import Tech from './components/tech';
 
 function App() {
 
@@ -14,6 +16,9 @@ function App() {
       </header>
       <body className='"pt-12"'>
         <Intro />
+        <Motivation />
+        <Tech />
+
 
       </body>
       <footer>

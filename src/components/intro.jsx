@@ -10,7 +10,7 @@ const Intro = () => {
     const subtitleStyle = "text-2xl font-light text-lime-300 mt-4";
 
     // Liste des titres à afficher de manière animée
-    const titles = ["React", " Tailwind CSS", "Nodejs", "Express", "MangoDB"];
+    const titles = ["React ", " Tailwind CSS ", "Node.js ", "Express ", "MangoDB "];
     // État pour gérer le texte actuellement affiché
     const [currentTitle, setCurrentTitle] = useState("");
     // État pour gérer l'index du titre en cours
@@ -43,7 +43,7 @@ const Intro = () => {
         };
 
         // Détermine la vitesse d'animation (plus rapide pour la suppression)
-        const typingSpeed = isDeleting ? 150 : 300;
+        const typingSpeed = isDeleting ? 50 : 200;
         // Démarre le timer pour l'animation
         const timer = setTimeout(handleType, typingSpeed);
 
@@ -56,14 +56,14 @@ const Intro = () => {
             className={introStyle} 
             style={{ 
                 // Définition de l'image de fond et du dégradé
-                backgroundImage: 'linear-gradient(to left, rgba(26, 46, 5, 1), rgba(26, 46, 5, 0)), url(/lime_tinted.webp)',
+                backgroundImage: 'linear-gradient(to left, rgba(26, 46, 5, 1), rgba(26, 46, 5, 0)), url(images/lime_tinted.webp)',
                 height: '50vh'
             }}
         >
             <div className={containerStyle}>
                 {/* Titre fixe "Développeur fullstack :" */}
                 <div className={titleStyle}>
-                    Développeur fullstack :
+                    Développeur fullstack
                 </div>
                 {/* Conteneur pour le texte animé */}
                 <div className={animatedTextContainerStyle}>
