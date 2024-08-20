@@ -2,42 +2,39 @@ import React from 'react';
 import RotatingCircleCard from './rotatingCercleCard';
 import withScrollAnimation from './withScrollAnimation';
 
-const Tech = () => {
+const Tech = () => {    
+    // Styles
+    const titleStyle = "text-3xl font-bold text-lime-500 m-8";
 
-    //const elementsRef = useScrollAnimation();
-
-    const card1 = [
-        ["/images/react_transparent.webp", "React"],
-        ["/images/scss_transparent.webp", "SCSS"],
-        ["/images/tailwind_transparent.webp", "Tailwind CSS"] 
-    ]
-
-    const card2 = [
-        ["/images/node_transparent.webp", "NodeJS"],
-        ["/images/express_transparent.webp", "Express"],
-        ["/images/mongo_transparent.webp", "MongoDB"]
-    ]
-
-    const card3 = [
-        ["/images/js_transparent.webp", "React"],
-        ["/images/cSharp_transparent.webp", "SCSS"],
-        ["/images/pyton_transparent.webp", "Tailwind CSS"]
-    ]
-
+    const cardsData = {
+        frontend: [
+            ["/images/react_transparent.webp", "React"],
+            ["/images/scss_transparent.webp", "SCSS"],
+            ["/images/tailwind_transparent.webp", "Tailwind CSS"]
+        ],
+        backend: [
+            ["/images/node_transparent.webp", "NodeJS"],
+            ["/images/express_transparent.webp", "Express"],
+            ["/images/mongo_transparent.webp", "MongoDB"]
+        ],
+        languages: [
+            ["/images/js_transparent.webp", "JavaScript"],
+            ["/images/cSharp_transparent.webp", "C#"],
+            ["/images/pyton_transparent.webp", "Python"]
+        ]
+    };   
 
     return (
         <div>
-            <p className="text-3xl font-bold text-lime-500 m-8" >Technologies</p>
+            <p className={titleStyle}>Technologies</p>
             <div className="flex flex-row justify-between">
-            <RotatingCircleCard images={card1} text="Frontend" />
-            <RotatingCircleCard images={card2} text="Backend" />
-            <RotatingCircleCard images={card3} text="Langages" />
-
-
+                {Object.entries(cardsData).map(([key, images], index) => (
+                    <RotatingCircleCard key={index} images={images} text={key.charAt(0).toUpperCase() + key.slice(1)} />
+                ))}
             </div>
-
         </div>
     );
+    
 };
 
 export default withScrollAnimation(Tech);

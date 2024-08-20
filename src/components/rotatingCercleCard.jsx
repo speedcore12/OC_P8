@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RotatingCircleCard = ({ images, text }) => {
-    // Styles CSS définis dans des constantes
+    // Styles
     const cardStyle = "relative w-64 h-60 mx-auto bg-lime-200  rounded-lg flex flex-col items-center justify-center";
     const textStyle = "absolute top-2 text-center text-lime-500 font-bold text-xl"; 
     const circleContainerStyle = "relative flex items-center justify-center mt-6";  

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Intro = () => {
-    // Variables pour les classes Tailwind CSS
+    // Styles
     const introStyle = "w-full h-4/6 flex flex-col justify-center items-end p-8 bg-left bg-no-repeat bg-cover";
     const containerStyle = "w-full text-right";
     const titleStyle = "text-4xl font-bold text-lime-500";
