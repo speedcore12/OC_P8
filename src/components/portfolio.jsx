@@ -1,37 +1,41 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import Typewriter from './typewriter'; // Assurez-vous que le chemin est correct
+import Typewriter from './typewriter';
+import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const Portfolio = () => {
+    const titleRef = useRef(null);
+    const [startTyping, setStartTyping] = useState(false);
+
+    // Utilisation du hook pour lancer l'animation lors de l'affichage du titre
+    useAnimateOnScroll(titleRef, () => setStartTyping(true));
+
     const [activeLogo, setActiveLogo] = useState(null);
 
-    // Styles regroupés
-    const containerStyle = "relative mt-10 w-full flex flex-col justify-center py-8";
-    const titleStyle = "text-3xl text font-bold text-lime-500 mb-0 ml-8";
+    // Styles 
+    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-8";
     const logoContainerStyle = "relative flex justify-around items-center w-full h-96 p-10";
     const logoStyle = "w-32 h-32 cursor-pointer z-10";
-    const bgStyle = "absolute bg-lime-200 w-full h-full top-0 left-0 rounded-lg ";
+    const bgStyle = "absolute bg-lime-200 w-full h-full top-0 left-0 rounded-lg shadow-neon";
     const logoItemStyle = "relative w-full h-full flex items-center justify-center";
-    const centeredTextStyle = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20";
-
-    // Styles spécifiques pour les <p> éléments
-    const titleTextStyle = "text-xl text-lime-950 font-bold text-center"; // Style pour le titre
-    const descriptionTextStyle = "text-xl2 text-lime-950 leading-relaxed max-w-full text-justify"; // Style pour la description
+    const centeredTextStyle = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-lime-200 bg-opacity-50 h-full w-full rounded-lg p-16 pl-20 pr-20"; 
+    const titleTextStyle = "text-xl text-lime-950 font-bold text-center"; 
+    const descriptionTextStyle = "text-xl2 text-lime-950 leading-relaxed max-w-full text-justify"; 
 
     // Logos et leurs chemins
     const logos = [
         {   
-            src: "/images/motion_transparent.webp", 
+            src: "/images/logos/motion_transparent.webp", 
             alt: "Framer Motion", 
             txt: "Framer Motion ajoute des animations fluides et personnalisées aux composants React."
         },
         {   
-            src: "/images/react_transparent.webp", 
+            src: "/images/logos/react_transparent.webp", 
             alt: "React", 
             txt: "React facilite la création de composants réutilisables et la gestion efficace des états de l'application."
         },
         {   
-            src: "/images/tailwind_txt_not.webp", 
+            src: "/images/logos/tailwind_txt_not.webp", 
             alt: "Tailwind CSS",
             txt: "Tailwind CSS permet de créer des designs réactifs et modernes tout en centralisant le code CSS dans un seul fichier."
         },
@@ -40,37 +44,50 @@ const Portfolio = () => {
     // Variants pour les animations
     const logoVariants = {
         initial: { scale: 1 },
-        hover: { scale: 1.5 },
-        shrink: { scale: 0, opacity: 0 },
+        hover: { scale: 1.1 },  // Réduction de l'ampleur du hover
+        shrink: { scale: 0.9, opacity: 0.5 },  // Réduction de l'animation de rétrécissement
     };
 
     const bgVariants = {
-        hidden: { opacity: 0, scale: 0 },
+        hidden: { opacity: 0, scale: 0.95 },
         visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
     };
 
-    const handleHoverStart = (index) => {
-        setActiveLogo(index);
+    // Animation pour le titre H2
+    const titleVariants = {
+        hidden: { opacity: 0, width: '0%' },
+        visible: {
+            opacity: 1,
+            width: '100%',
+            transition: { duration: 1, ease: 'easeInOut' },
+        },
     };
 
     return (
         <div className={containerStyle}>
-            <p className={titleStyle}>Technologies utilisées pour ce Portfolio</p>
+            <motion.h2
+                ref={titleRef}
+                initial="hidden"
+                animate={startTyping ? 'visible' : 'hidden'}
+                variants={titleVariants}
+            >
+                {startTyping && <Typewriter text="Technologies utilisées pour ce Portfolio" speed={50} />}
+            </motion.h2>
             <div className={logoContainerStyle}>
                 {logos.map((logo, index) => (
                     <motion.div
                         key={index}
-                        onHoverStart={() => handleHoverStart(index)}
+                        onHoverStart={() => setActiveLogo(index)}
                         onHoverEnd={() => setActiveLogo(null)}
-                        className={logoItemStyle} // Utilisation du style pour l'élément du logo
+                        className={logoItemStyle}
+                        initial="initial"
+                        animate={activeLogo === index ? "hover" : activeLogo === null ? "initial" : "shrink"}
+                        variants={logoVariants}
                     >
                         <motion.img
                             src={logo.src}
                             alt={logo.alt}
                             className={logoStyle}
-                            initial="initial"
-                            animate={activeLogo === index ? "hover" : activeLogo === null ? "initial" : "shrink"}
-                            variants={logoVariants}
                         />
                         {activeLogo === index && (
                             <>
@@ -99,6 +116,6 @@ const Portfolio = () => {
             </div>
         </div>
     );
-};
+}; 
 
 export default Portfolio;

@@ -1,3 +1,5 @@
+const Colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -5,21 +7,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Utilisation des couleurs lime de Tailwind pour remplacer les couleurs personnalisées
-        backgroundDark: require('tailwindcss/colors').lime['950'], 
-        borderNeon: require('tailwindcss/colors').lime['300'], 
-        textNeon: require('tailwindcss/colors').lime['300'], 
+        backgroundDark: Colors.lime['950'], 
+        borderNeon: Colors.lime['300'], 
+        textNeon: Colors.lime['300'], 
       },
       boxShadow: {
-        neon: `0 0 10px ${require('tailwindcss/colors').lime['300']}, 0 0 20px ${require('tailwindcss/colors').lime['300']}, 0 0 30px ${require('tailwindcss/colors').lime['300']}`,
+        neon: `0 0 5px ${Colors.lime['300']}, 0 0 10px ${Colors.lime['300']}, 0 0 15px ${Colors.lime['300']}`,
+      },
+      textShadow: {
+        neon: `0 0 5px ${Colors.lime['300']}`,
       },
       fontFamily: {
         dos: ['"Press Start 2P"', 'monospace'],
       },
       animation: {
+        'expand-line': 'expand-line 1s ease-in-out forwards',
         'spin-slow': 'spin 15s linear infinite',
-      },      
+      },
+      keyframes: {
+        'expand-line': {
+          '0%': { width: '0%' },
+          '100%': { width: '100%' },
+        },
+      },
     },
   },
-  plugins: [],
-}
+  plugins: [
+    require('tailwindcss-textshadow'), 
+  ],
+};

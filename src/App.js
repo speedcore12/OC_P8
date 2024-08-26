@@ -4,6 +4,8 @@ import Intro from './components/intro';
 import Motivation from './components/motiv';
 import Tech from './components/tech';
 import Portfolio from './components/portfolio';
+import ContactForm from './components/contactForm';
+import ProjectGrid from './components/projectGrid';
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
         <Intro />
         <Motivation />
         <Tech />
+        <ProjectGrid />
         <Portfolio />
+        <ContactForm />
 
       </body>
       <footer className={footerStyle}>

@@ -10,20 +10,27 @@
   .border-neon {
     @apply border border-borderNeon shadow-neon; /* borderNeon est défini dans tailwind.config.js */
   }
-}
 
-body {
-  @apply bg-backgroundDark text-textNeon font-dos; /* backgroundDark et textNeon sont définis dans tailwind.config.js */
-}
-
-@layer components {
   .hover-effect {
     @apply block px-4 py-2 text-textNeon transition; /* Utilise textNeon pour la couleur du texte */
   }
   
   .hover-effect:hover {
-    @apply bg-borderNeon text-backgroundDark; /* Inverse les couleurs au survol */
+    @apply bg-borderNeon text-backgroundDark shadow-neon; /* Inverse les couleurs au survol */
   }
 }
 
+body {
+  @apply bg-backgroundDark text-textNeon font-dos; /* backgroundDark et textNeon sont définis dans tailwind.config.js */
+  @apply text-shadow-neon; /* shadow-neon est défini dans tailwind.config.js */
+}
 
+h2 {
+  @apply relative text-3xl font-bold text-lime-500 mb-2;
+  @apply after:content-[''] after:block after:w-0 after:h-1 after:border-b-2 after:border-dashed after:border-lime-500;
+  @apply after:transition-all after:duration-1000 after:ease-in-out;
+}
+
+.animate-expand-line::after {
+  @apply w-full; /* S'étend à 100% lorsqu'elle devient visible */
+}
