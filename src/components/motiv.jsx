@@ -37,6 +37,10 @@ const Motivation = () => {
                 animate={startTyping ? 'visible' : 'hidden'}
                 variants={titleVariants}
             >
+                {/* Texte par défaut pour les moteurs de recherche et les outils d'accessibilité */}
+                {!startTyping && 'Passé & Avenir'}
+                
+                {/* Titre animé avec la machine à écrire */}
                 {startTyping && <Typewriter text="Passé & Avenir" speed={50} />}
             </motion.h2>
             <div className={textStyle}>

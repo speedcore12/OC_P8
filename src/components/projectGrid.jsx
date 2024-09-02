@@ -24,13 +24,14 @@ const ProjectGrid = () => {
     // Utilisation du hook pour lancer l'animation lors de l'affichage du titre
     useAnimateOnScroll(titleRef, () => setStartTyping(true));
 
-    // Données des projets
+    // Données des projets avec l'ajout des descriptions alternatives pour les images
     const projetData = [
         {
             "nom": "Intégration d'une maquette responsive",
             "techno": ["HTML", "CSS", "Responsive", "GitHub"],
             "url": "https://github.com/speedcore12/OC_P2",
             "img": "/images/projets/P2.webp",
+            "alt": "Aperçu du projet d'intégration d'une maquette responsive.",
             "description": "Ce projet consiste à intégrer une maquette responsive en HTML et CSS, en respectant les normes d'accessibilité et les bonnes pratiques de développement, en utilisant Visual Studio Code pour le développement, et GitHub pour la gestion de version.",
         },
         {
@@ -38,6 +39,7 @@ const ProjectGrid = () => {
             "techno": ["HTML", "CSS", "JS", "API RESTful", "GitHub"],
             "url": "https://github.com/speedcore12/OC_P3",
             "img": "/images/projets/P3.webp",
+            "alt": "Aperçu du projet de création d'une interface web dynamique.",
             "description": "Ce projet utilise JavaScript pour gérer les interactions utilisateur et manipuler le DOM, en intégrant une API pour la communication avec le back-end, avec l'aide de Figma pour les maquettes, Visual Studio Code pour le développement, et GitHub pour la gestion de version.",
         },
         {
@@ -45,6 +47,7 @@ const ProjectGrid = () => {
             "techno": ["HTML", "CSS", "JS", "SEO", "Accessibilité", "GitHub"],
             "url": "https://github.com/speedcore12/OC_P4",
             "img": "/images/projets/P4.webp",
+            "alt": "Aperçu du projet d'optimisation SEO et accessibilité.",
             "description": "Ce projet consiste à améliorer le référencement naturel d'un site web et à garantir l'accessibilité de celui-ci, en utilisant les outils de développement et de validation et en utilisant GitHub pour la gestion de version.",
         },
         {
@@ -52,6 +55,7 @@ const ProjectGrid = () => {
             "techno": ["React", "React Router", "SCSS", "GitHub"],
             "url": "https://github.com/speedcore12/OC_P5",
             "img": "/images/projets/P5.webp",
+            "alt": "Aperçu du projet de développement d'une application avec React et React Router.",
             "description": "Ce projet consiste à développer une application web dynamique avec React, en utilisant React Router pour la navigation en utilisant GitHub pour la gestion de version.",
         },
         {
@@ -59,6 +63,7 @@ const ProjectGrid = () => {
             "techno": ["Node.js", "Express", "MongoDB", "GitHub"],
             "url": "https://github.com/speedcore12/OC_P6",
             "img": "/images/projets/P6.webp",
+            "alt": "Aperçu du projet de développement du back-end avec Node.js, Express, et MongoDB.",
             "description": "Ce projet consiste à développer le back-end d'une application web dynamique avec Node.js, Express, et MongoDB, implémenterez des opérations CRUD sécurisées, en utilisant GitHub pour la gestion de version.",
         }
     ];
@@ -81,12 +86,13 @@ const ProjectGrid = () => {
                 animate={startTyping ? 'visible' : 'hidden'}
                 variants={titleVariants}
             >
+                <span className="sr-only">Mes Projets</span> {/* Texte accessible mais caché visuellement */}
                 {startTyping && <Typewriter text="Mes Projets" speed={50} />}
             </motion.h2>
             <div className={gridStyle}>
                 {projetData.map((projet, index) => (
                     <div key={index} className={cardStyle}>
-                        <img src={projet.img} alt={projet.nom} className={imgStyle} />
+                        <img src={projet.img} alt={projet.alt} className={imgStyle} />
                         <div className={titleStyle}>
                             <Typewriter text={projet.nom} speed={50} />
                         </div>

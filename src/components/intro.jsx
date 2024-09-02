@@ -63,7 +63,7 @@ const Intro = () => {
             <div className={containerStyle}>
                 {/* Titre fixe "Développeur fullstack :" */}
                 <div className={titleStyle}>
-                    Développeur fullstack
+                    <h1>Développeur fullstack</h1>
                 </div>
                 {/* Conteneur pour le texte animé */}
                 <div className={animatedTextContainerStyle}>

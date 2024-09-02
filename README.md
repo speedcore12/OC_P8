@@ -1,74 +1,94 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+==============================================================================
+                            PORTFOLIO DE MANUEL ZUANON
+==============================================================================
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenue sur mon portfolio en ligne ! Ce site met en avant mes compétences en 
+développement frontend à travers une interface unique qui rappelle les anciens 
+terminaux d'ordinateur sous BASIC/DOS, avec ses couleurs verdâtres 
+caractéristiques et son style rétro.
 
-## Available Scripts
+==============================================================================
+                                 APERÇU
+==============================================================================
 
-In the project directory, you can run:
+Ce portfolio a été développé avec une attention particulière à l'esthétique 
+rétro et à l'interactivité. Voici les principales technologies utilisées :
 
-### `npm start`
+------------------------------------------------------------------------------
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**TECHNOLOGIES UTILISÉES**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React** : Le framework React a été utilisé pour structurer l'application 
+  et créer une interface utilisateur réactive et modulaire.
 
-### `npm test`
+- **Tailwind CSS** : Tailwind CSS a permis de styliser l'ensemble du site, 
+  avec un accent sur un design réactif et la facilité de personnalisation 
+  grâce aux classes utilitaires.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Framer Motion** : Pour ajouter des animations fluides et engageantes, 
+  Framer Motion a été intégré, permettant des transitions douces et dynamiques 
+  au sein de l'interface.
 
-### `npm run build`
+- **Typewriter Effect** : Un effet de machine à écrire a été utilisé pour 
+  rendre le texte plus vivant, renforçant le thème rétro de l'interface.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Intersection Observer (via un custom hook)** : Un hook personnalisé a été 
+  créé pour déclencher des animations lorsque les éléments deviennent visibles 
+  à l'écran.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+------------------------------------------------------------------------------
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**PROJETS PRÉSENTÉS**
 
-### `npm run eject`
+Chaque projet inclus dans ce portfolio illustre une compétence spécifique en 
+développement frontend :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Intégration d'une Maquette Responsive** : Un projet démontrant la capacité 
+   à créer des interfaces responsives en HTML et CSS, en respectant les normes 
+   d'accessibilité.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Création d'une Interface Web Dynamique** : Ce projet met en avant 
+   l'utilisation de JavaScript pour gérer les interactions utilisateur et les 
+   données via une API RESTful.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Optimisation SEO et Accessibilité** : Une optimisation poussée pour garantir 
+   un bon référencement naturel et une accessibilité maximale.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Développement d'une Application avec React** : Une application web dynamique 
+   construite avec React, démontrant la maîtrise de la gestion d'état et des 
+   composants réutilisables.
 
-## Learn More
+------------------------------------------------------------------------------
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**THÈME ET INTERFACE**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+L'interface du site est inspirée des anciens terminaux d'ordinateur sous 
+BASIC/DOS, avec une palette de couleurs verdâtres pour rappeler les écrans 
+monochromes. Cette approche esthétique est non seulement un hommage à 
+l'informatique rétro, mais aussi une manière de rendre l'expérience utilisateur 
+unique et mémorable. Chaque interaction sur le site renforce cette atmosphère, 
+des animations de texte à la disposition des éléments.
 
-### Code Splitting
+------------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**À PROPOS DE MOI**
 
-### Analyzing the Bundle Size
+Je suis un développeur web passionné par le design d'interfaces et l'expérience 
+utilisateur. J'ai récemment complété une formation en développement web chez 
+OpenClassrooms tout en gérant une entreprise à temps plein. Mon parcours m'a 
+amené à explorer une variété de technologies, avec un intérêt particulier pour 
+les environnements qui permettent de créer des interfaces riches et interactives.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Mes objectifs à court terme incluent la poursuite d'une licence professionnelle 
+en alternance dans le développement ou la gestion de projet IT. À moyen terme, 
+je vise à intégrer un Master MIAGE (Méthodes informatiques appliquées à la 
+gestion des entreprises) pour approfondir mes compétences en informatique et en
+gestion.
 
-### Making a Progressive Web App
+==============================================================================
+                                 CONTACT
+==============================================================================
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# OC_P8
->>>>>>> 867063f39471984a9c1eca51ce0fbe9973cec7cb
+Si vous souhaitez en savoir plus sur mes compétences ou discuter d'une 
+opportunité de collaboration, n'hésitez pas à me contacter via les liens 
+présents sur le site ou directement via manuelzuanon[at]gmail.com.

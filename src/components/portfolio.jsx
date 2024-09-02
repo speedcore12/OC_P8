@@ -76,8 +76,13 @@ const Portfolio = () => {
                 animate={startTyping ? 'visible' : 'hidden'}
                 variants={titleVariants}
             >
+                {/* Texte par défaut visible avant l'animation */}
+                {!startTyping && 'Technologies utilisées pour ce Portfolio'}
+                
+                {/* Titre animé avec la machine à écrire */}
                 {startTyping && <Typewriter text="Technologies utilisées pour ce Portfolio" speed={50} />}
             </motion.h2>
+
             <div className={logoContainerStyle}>
                 {logos.map((logo, index) => (
                     <motion.div

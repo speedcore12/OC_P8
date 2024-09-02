@@ -50,8 +50,12 @@ const Tech = () => {
     return (
         <div className={containerStyle}>
             <h2 ref={titleRef} className={titleStyle}>
+                {/* Texte accessible par défaut pour les moteurs de recherche et les outils d'accessibilité */}
+                {!startTyping && 'Technologies maîtrisées'}
+                
                 {/* Titre animé avec la machine à écrire */}
                 {startTyping && <Typewriter text='Technologies maîtrisées' speed={50} />}
+                
                 <motion.div 
                     className={lineStyle}
                     variants={lineVariants}

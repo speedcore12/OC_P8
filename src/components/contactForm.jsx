@@ -157,8 +157,13 @@ const ContactForm = () => {
         animate={startTyping ? 'visible' : 'hidden'}
         variants={titleVariants}
       >
+        {/* Texte par défaut pour l'accessibilité */}
+        {!startTyping && 'Formulaire de contact'}
+        
+        {/* Titre animé avec la machine à écrire */}
         {startTyping && <Typewriter text="Formulaire de contact" speed={50} />}
       </motion.h2>
+
       <form onSubmit={handleSubmit} className={formStyle}>
         <div>
           <label htmlFor="name" className={labelStyle}>

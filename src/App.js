@@ -9,7 +9,7 @@ import ContactForm from './components/contactForm';
 import ProjectGrid from './components/projectGrid';
 
 function App() {
-
+  // Styles
   const appStyle = "max-w-screen-xl mx-auto p-4";
   const bodyStyle = "pt-12";
 
