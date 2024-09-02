@@ -1,4 +1,5 @@
 import './App.css';
+
 import Nav from './components/nav';
 import Intro from './components/intro';
 import Motivation from './components/motiv';
@@ -11,7 +12,6 @@ function App() {
 
   const appStyle = "max-w-screen-xl mx-auto p-4";
   const bodyStyle = "pt-12";
-  const footerStyle = "";
 
   return (
     <div className={appStyle}>
@@ -19,17 +19,14 @@ function App() {
         <Nav />
       </header>
       <body className={bodyStyle}>
-        <Intro />
+        <div id="home"><Intro /></div>
         <Motivation />
         <Tech />
-        <ProjectGrid />
+        <div id="projects"><ProjectGrid /></div>
         <Portfolio />
-        <ContactForm />
+        <div id="contact"><ContactForm /></div>
 
       </body>
-      <footer className={footerStyle}>
-
-      </footer>
     </div>
   );
 }

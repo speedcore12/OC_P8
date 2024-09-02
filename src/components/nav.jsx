@@ -9,10 +9,9 @@ const Nav = () => {
 
     // Données de navigation
     const navItems = [
-        { href: "#", label: "About" },
-        { href: "#", label: "Services" },
-        { href: "#", label: "Contact" },
-        { href: "#", label: "Home" }
+        { href: "#projects", label: "Mes Projets" },
+        { href: "#contact", label: "Contact" },
+        { href: "#home", label: "Home" }
     ];
 
     return (

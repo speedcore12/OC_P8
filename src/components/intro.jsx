@@ -5,12 +5,12 @@ const Intro = () => {
     const introStyle = "w-full h-4/6 flex flex-col justify-center items-end p-8 bg-left bg-no-repeat bg-cover";
     const containerStyle = "w-full text-right";
     const titleStyle = "text-4xl font-bold text-lime-500";
-    const animatedTextContainerStyle = "text-4xl font-bold text-lime-500 h-12 flex justify-end items-center ";
+    const animatedTextContainerStyle = "text-4xl font-bold text-lime-500 h-12 flex justify-end items-center";
     const animatedTextStyle = "inline-block bg-lime-300 text-backgroundDark px-2 py-1 m-1";
     const subtitleStyle = "text-2xl font-light text-lime-300 mt-4";
 
     // Liste des titres à afficher de manière animée
-    const titles = ["React ", " Tailwind CSS ", "Node.js ", "Express ", "MongoDB "];
+    const titles = ["React ", "Tailwind CSS ", "Node.js ", "Express ", "MongoDB "];
     // État pour gérer le texte actuellement affiché
     const [currentTitle, setCurrentTitle] = useState("");
     // État pour gérer l'index du titre en cours
@@ -80,6 +80,11 @@ const Intro = () => {
                 <div className={subtitleStyle}>
                     Créatif, passionné et autodidacte
                 </div>
+                {/* Lien de téléchargement du CV */}
+                <div className='mt-2'>
+                    <a className={subtitleStyle} href='/files/cv.pdf' target="_blank" download="cv.pdf">Télécharger mon CV</a>
+                </div>
+
             </div>
         </div>
     );

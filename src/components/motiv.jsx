@@ -4,17 +4,19 @@ import Typewriter from './typewriter';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const Motivation = () => {
+    // Styles
+    const containerStyle = "w-full p-2 min-h-[265px]";
+    const textStyle = "text-lg text-lime-500 leading-relaxed max-w-full text-justify mt-10";
+
+    // Référence pour l'élément de titre pour l'animation
     const titleRef = useRef(null);
+    // État pour démarrer l'animation de la machine à écrire
     const [startTyping, setStartTyping] = useState(false);
 
     // Utilisation du hook pour lancer l'animation lors de l'affichage du titre
     useAnimateOnScroll(titleRef, () => setStartTyping(true));
 
-    // Styles
-    const containerStyle = "w-full p-8 min-h-[265px]";
-    const textStyle = "text-lg text-lime-500 leading-relaxed max-w-full text-justify mt-10";
-
-
+    // Texte à afficher
     const text = "À court terme, je souhaite poursuivre une licence professionnelle en alternance, dans le domaine du développement ou de la gestion de projet IT. À moyen terme, je vise à intégrer un Master MIAGE pour approfondir mes compétences en informatique et en gestion. À long terme, mon objectif est de devenir chef de projet ou Directeur des Systèmes d'Information (DSI). J'ai récemment terminé la formation de développeur web chez OpenClassrooms, tout en gérant une entreprise à temps plein. Passionné de programmation, j'ai également développé plusieurs jeux vidéo en C# avec Unity.";
 
     // Animation pour le titre H2

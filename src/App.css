@@ -2,35 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Définition de styles personnalisés dans la couche components */
 @layer components {
+  /* Classe pour le texte avec effet néon */
   .textNeon {
     @apply text-textNeon shadow-neon; /* textNeon et shadow-neon sont définis dans tailwind.config.js */
   }
   
+  /* Classe pour les bordures avec effet néon */
   .border-neon {
     @apply border border-borderNeon shadow-neon; /* borderNeon est défini dans tailwind.config.js */
   }
 
+  /* Effet de survol avec transition */
   .hover-effect {
     @apply block px-4 py-2 text-textNeon transition; /* Utilise textNeon pour la couleur du texte */
   }
   
+  /* Modification de l'apparence au survol */
   .hover-effect:hover {
     @apply bg-borderNeon text-backgroundDark shadow-neon; /* Inverse les couleurs au survol */
   }
 }
 
+/* Styles globaux pour le body */
 body {
   @apply bg-backgroundDark text-textNeon font-dos; /* backgroundDark et textNeon sont définis dans tailwind.config.js */
   @apply text-shadow-neon; /* shadow-neon est défini dans tailwind.config.js */
 }
 
+/* Styles pour les titres <h2> */
 h2 {
   @apply relative text-3xl font-bold text-lime-500 mb-2;
+  /* Après le titre, ajoute une ligne pointillée qui s'étend lors de l'animation */
   @apply after:content-[''] after:block after:w-0 after:h-1 after:border-b-2 after:border-dashed after:border-lime-500;
   @apply after:transition-all after:duration-1000 after:ease-in-out;
 }
 
+/* Classe pour l'animation d'extension de la ligne sous les titres */
 .animate-expand-line::after {
   @apply w-full; /* S'étend à 100% lorsqu'elle devient visible */
 }

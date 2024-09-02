@@ -4,25 +4,29 @@ import Typewriter from './typewriter';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const Portfolio = () => {
+    // Styles
+    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-2";
+    const logoContainerStyle = "relative flex flex-wrap justify-around items-center h-auto p-10";
+    const logoStyle = "w-32 h-32 cursor-pointer z-10";
+    const bgStyle = "absolute bg-lime-200 w-full h-full top-0 left-0 rounded-lg shadow-neon";
+    const logoItemStyle = "relative flex items-center justify-center w-[350px] h-80 flex-shrink-0";
+    const centeredTextStyle = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-lime-200 bg-opacity-50 h-full w-full rounded-lg p-16 pl-20 pr-20"; 
+    const titleTextStyle = "text-xl text-lime-950 font-bold text-center"; 
+    const descriptionTextStyle = "text-xl2 text-lime-950 leading-relaxed max-w-full text-justify";
+    const linkStyle = "text-lime-300 underline mt-auto text-center"; 
+
+    // Référence pour l'élément de titre pour l'animation
     const titleRef = useRef(null);
+    // État pour démarrer l'animation de la machine à écrire
     const [startTyping, setStartTyping] = useState(false);
 
     // Utilisation du hook pour lancer l'animation lors de l'affichage du titre
     useAnimateOnScroll(titleRef, () => setStartTyping(true));
 
+    // État pour gérer le logo actif (celui survolé)
     const [activeLogo, setActiveLogo] = useState(null);
 
-    // Styles 
-    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-8";
-    const logoContainerStyle = "relative flex justify-around items-center w-full h-96 p-10";
-    const logoStyle = "w-32 h-32 cursor-pointer z-10";
-    const bgStyle = "absolute bg-lime-200 w-full h-full top-0 left-0 rounded-lg shadow-neon";
-    const logoItemStyle = "relative w-full h-full flex items-center justify-center";
-    const centeredTextStyle = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-lime-200 bg-opacity-50 h-full w-full rounded-lg p-16 pl-20 pr-20"; 
-    const titleTextStyle = "text-xl text-lime-950 font-bold text-center"; 
-    const descriptionTextStyle = "text-xl2 text-lime-950 leading-relaxed max-w-full text-justify"; 
-
-    // Logos et leurs chemins
+    // Logos et leurs descriptions
     const logos = [
         {   
             src: "/images/logos/motion_transparent.webp", 
@@ -41,13 +45,14 @@ const Portfolio = () => {
         },
     ];
 
-    // Variants pour les animations
+    // Variants pour les animations des logos
     const logoVariants = {
         initial: { scale: 1 },
-        hover: { scale: 1.1 },  // Réduction de l'ampleur du hover
-        shrink: { scale: 0.9, opacity: 0.5 },  // Réduction de l'animation de rétrécissement
+        hover: { scale: 1.1 },  // Légère augmentation de la taille au survol
+        shrink: { scale: 0.9, opacity: 0.5 },  // Réduction de la taille et opacité pour les autres logos
     };
 
+    // Variants pour l'animation de fond lors du survol d'un logo
     const bgVariants = {
         hidden: { opacity: 0, scale: 0.95 },
         visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
@@ -114,8 +119,11 @@ const Portfolio = () => {
                     </motion.div>
                 ))}
             </div>
+            <a href="https://github.com/speedcore12/OC_P8" target="_blank" rel="noopener noreferrer" className={linkStyle}>
+                Lien vers le GitHub
+            </a>
         </div>
     );
-}; 
+};
 
 export default Portfolio;

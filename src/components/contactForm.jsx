@@ -5,26 +5,42 @@ import Typewriter from './typewriter';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const ContactForm = () => {
+  // Styles
+  const containerStyle = 'relative mt-10 w-full flex flex-col justify-center p-2';
+  const formStyle = 'bg-backgroundDark p-6 rounded-lg w-2/3 mx-auto';
+  const labelStyle = 'mt-2 block text-neon';
+  const inputStyle = 'mt-1 p-2 block w-full bg-lime-200 text-backgroundDark border-neon rounded-md focus:bg-backgroundDark focus:text-textNeon focus:outline-none focus:ring-2 focus:ring-borderNeon';
+  const buttonStyle = 'border-neon font-dos mt-5 mx-auto w-1/2 hover-effect';
+  const errorStyle = 'text-red-500 mt-2';
+
+  // Référence pour l'élément de titre pour l'animation
   const titleRef = useRef(null);
+  // État pour démarrer l'animation de la machine à écrire
   const [startTyping, setStartTyping] = useState(false);
 
   // Utilisation du hook pour lancer l'animation lors de l'affichage du titre
   useAnimateOnScroll(titleRef, () => setStartTyping(true));
 
+  // État pour gérer les données du formulaire
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
+  // État pour gérer les erreurs de validation des champs du formulaire
   const [errors, setErrors] = useState({
     name: false,
     email: false,
     message: false
   });
 
+  // État pour les messages d'erreur spécifiques
   const [emailError, setEmailError] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [messageError, setMessageError] = useState('');
 
+  // Fonction pour gérer le changement des champs du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -33,13 +49,37 @@ const ContactForm = () => {
     });
   };
 
+  // Validation du champ email avec une expression régulière
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
+  // Validation du champ nom avec une expression régulière
+  const validateName = (name) => {
+    const nameRegex = /^[a-zA-ZÀ-ÿ\s'-]+$/;
+    return nameRegex.test(name);
+  };
+
+  // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Vérification du champ Nom
+    if (!validateName(formData.name)) {
+      setNameError('Le nom ne doit contenir que des lettres.');
+      return;
+    } else {
+      setNameError('');
+    }
+
+    // Vérification du champ Message
+    if (formData.message.length < 50) {
+      setMessageError('Le message doit contenir au moins 50 caractères.');
+      return;
+    } else {
+      setMessageError('');
+    }
 
     // Vérification des champs obligatoires
     const newErrors = {
@@ -99,14 +139,6 @@ const ContactForm = () => {
     setEmailError('');
   };
 
-  // Variables de style utilisant les classes définies dans tailwind.config.js
-  const containerStyle = 'relative mt-10 w-full flex flex-col justify-center p-8';
-  const formStyle = 'bg-backgroundDark p-6 rounded-lg w-1/2 mx-auto';
-  const labelStyle = 'mt-2 block text-neon';
-  const inputStyle = 'mt-1 p-2 block w-full bg-lime-200 text-backgroundDark border-neon rounded-md focus:bg-backgroundDark focus:text-textNeon focus:outline-none focus:ring-2 focus:ring-borderNeon';
-  const buttonStyle = 'border-neon font-dos mt-5 mx-auto w-1/2 hover-effect';
-  const errorStyle = 'text-red-500 mt-2';
-
   // Animation pour le titre H2
   const titleVariants = {
     hidden: { opacity: 0, width: '0%' },
@@ -142,6 +174,7 @@ const ContactForm = () => {
             className={inputStyle}
           />
           {errors.name && <p className={errorStyle}>Ce champ est requis.</p>}
+          {nameError && <p className={errorStyle}>{nameError}</p>}
         </div>
         <div>
           <label htmlFor="email" className={labelStyle}>
@@ -172,6 +205,7 @@ const ContactForm = () => {
             rows="4"
           />
           {errors.message && <p className={errorStyle}>Ce champ est requis.</p>}
+          {messageError && <p className={errorStyle}>{messageError}</p>}
         </div>
         <button type="submit" className={buttonStyle}>
           Envoyer
