@@ -17,7 +17,7 @@ const Motivation = () => {
     useAnimateOnScroll(titleRef, () => setStartTyping(true));
 
     // Texte à afficher
-    const text = "À court terme, je souhaite poursuivre une licence professionnelle en alternance, dans le domaine du développement ou de la gestion de projet IT. À moyen terme, je vise à intégrer un Master MIAGE pour approfondir mes compétences en informatique et en gestion. À long terme, mon objectif est de devenir chef de projet ou Directeur des Systèmes d'Information (DSI). J'ai récemment terminé la formation de développeur web chez OpenClassrooms, tout en gérant une entreprise à temps plein. Passionné de programmation, j'ai également développé plusieurs jeux vidéo en C# avec Unity.";
+    const text = "À court terme, je souhaite poursuivre une licence professionnelle en alternance, dans le domaine du développement ou de la gestion. À moyen terme, je vise à intégrer un Master MIAGE pour approfondir mes compétences. À long terme, mon objectif est de devenir chef de projet ou Directeur des Systèmes d'Information (DSI). J'ai récemment terminé la formation de développeur web chez OpenClassrooms, tout en gérant une entreprise à temps plein. Passionné de programmation, j'ai également développé plusieurs jeux vidéo en C# avec Unity.";
 
     // Animation pour le titre H2
     const titleVariants = {

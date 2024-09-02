@@ -5,15 +5,15 @@ import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const ProjectGrid = () => {
     // Styles 
-    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-8";
+    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-2";
     const gridStyle = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4";
-    const cardStyle = "bg-backgroundDark border border-lime-300 rounded-lg overflow-hidden shadow-neon m-4 flex flex-col";
+    const cardStyle = "w-full bg-backgroundDark border border-lime-300 rounded-lg overflow-hidden shadow-neon flex flex-col";
     const imgStyle = "w-full h-48 object-cover border-b-2 border-lime-300 bg-lime-200 rounded-t-lg";
     const titleStyle = "bg-lime-900 bg-opacity-7 text-lime-300 font-bold p-4 min-h-[80px]";
     const descriptionStyle = "p-4 text-lime-500 flex-1 flex flex-col"; 
     const techStyle = "mt-2";
-    const linkStyle = "text-lime-300 underline mt-auto"; 
-    const techContainerStyle = "flex flex-wrap gap-2 mt-2";
+    const linkStyle = "text-lime-300 underline mt-4"; 
+    const techContainerStyle = "flex flex-wrap gap-4 mt-2";
     const techItemStyle = "bg-lime-300 text-lime-900 px-2 py-1 rounded-lg shadow-neon";
 
     // Référence pour l'élément de titre pour l'animation
@@ -97,7 +97,7 @@ const ProjectGrid = () => {
                             <Typewriter text={projet.nom} speed={50} />
                         </div>
                         <div className={descriptionStyle}>
-                            <p><Typewriter text={projet.description} speed={10} /></p>
+                            <p className='text-justify'><Typewriter text={projet.description} speed={10} /></p>
                             <p className={techStyle}><strong>Environnements technologiques :</strong></p>
                             <div className={techContainerStyle}>
                                 {projet.techno.map((tech, idx) => (

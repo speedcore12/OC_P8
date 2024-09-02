@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from './typewriter';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
@@ -23,7 +23,7 @@ const Portfolio = () => {
     // Utilisation du hook pour lancer l'animation lors de l'affichage du titre
     useAnimateOnScroll(titleRef, () => setStartTyping(true));
 
-    // État pour gérer le logo actif (celui survolé)
+    // État pour gérer le logo actif (celui survolé ou cliqué)
     const [activeLogo, setActiveLogo] = useState(null);
 
     // Logos et leurs descriptions
@@ -68,6 +68,41 @@ const Portfolio = () => {
         },
     };
 
+    // Gestion des clics sur les logos
+    const handleLogoClick = (index) => {
+        if (activeLogo === index) {
+            setActiveLogo(null); // Désactive le logo si cliqué à nouveau
+        } else {
+            setActiveLogo(index); // Active le logo cliqué
+        }
+    };
+
+    // Gestion des clics à l'extérieur des logos pour désactiver les animations
+    const handleClickOutside = (event) => {
+        if (!event.target.closest('.logo-container') && activeLogo !== null) {
+            setActiveLogo(null); // Réinitialise l'état `activeLogo` pour désactiver tous les logos
+        }
+    };
+
+    // Gestion du défilement pour désactiver les animations
+    const handleScroll = () => {
+        if (activeLogo !== null) {
+            setActiveLogo(null); // Réinitialise l'état `activeLogo` pour désactiver tous les logos
+        }
+    };
+
+    // Effet pour ajouter les écouteurs d'événements pour les clics extérieurs et le défilement
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        window.addEventListener('scroll', handleScroll);
+
+        // Nettoyage des écouteurs d'événements pour éviter les fuites de mémoire
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [activeLogo]);
+
     return (
         <div className={containerStyle}>
             <motion.h2
@@ -83,12 +118,13 @@ const Portfolio = () => {
                 {startTyping && <Typewriter text="Technologies utilisées pour ce Portfolio" speed={50} />}
             </motion.h2>
 
-            <div className={logoContainerStyle}>
+            <div className={`${logoContainerStyle} logo-container`}>
                 {logos.map((logo, index) => (
                     <motion.div
                         key={index}
                         onHoverStart={() => setActiveLogo(index)}
                         onHoverEnd={() => setActiveLogo(null)}
+                        onClick={() => handleLogoClick(index)}  // Gère les écrans tactiles
                         className={logoItemStyle}
                         initial="initial"
                         animate={activeLogo === index ? "hover" : activeLogo === null ? "initial" : "shrink"}

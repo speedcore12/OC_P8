@@ -7,11 +7,13 @@ import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 const ContactForm = () => {
   // Styles
   const containerStyle = 'relative mt-10 w-full flex flex-col justify-center p-2';
-  const formStyle = 'bg-backgroundDark p-6 rounded-lg w-2/3 mx-auto';
+  const formStyle = 'bg-backgroundDark p-6 rounded-lg w-full sm:w-2/3 mx-auto'; 
   const labelStyle = 'mt-2 block text-neon';
   const inputStyle = 'mt-1 p-2 block w-full bg-lime-200 text-backgroundDark border-neon rounded-md focus:bg-backgroundDark focus:text-textNeon focus:outline-none focus:ring-2 focus:ring-borderNeon';
-  const buttonStyle = 'border-neon font-dos mt-5 mx-auto w-1/2 hover-effect';
+  const buttonStyle = 'border-neon font-dos mt-5 mx-auto rounded sm:w-1/4 w-full hover-effect'; 
   const errorStyle = 'text-red-500 mt-2';
+
+
 
   // Référence pour l'élément de titre pour l'animation
   const titleRef = useRef(null);
