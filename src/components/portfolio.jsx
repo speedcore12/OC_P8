@@ -5,17 +5,17 @@ import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const Portfolio = () => {
     // Styles
-    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-2";
-    const logoContainerStyle = "relative flex flex-wrap justify-around items-center h-auto p-10";
+    const containerStyle = "relative mt-10 w-full flex flex-col justify-center p-4 lg:p-8";
+    const logoContainerStyle = "relative flex flex-wrap justify-around items-center h-auto p-4 lg:p-10";
     const logoStyle = "w-32 h-32 cursor-pointer z-10";
     const bgStyle = "absolute bg-lime-200 w-full h-full top-0 left-0 rounded-lg shadow-neon";
-    const logoItemStyle = "relative flex items-center justify-center w-[350px] h-80 flex-shrink-0";
-    const centeredTextStyle = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-lime-200 bg-opacity-50 h-full w-full rounded-lg p-16 pl-20 pr-20"; 
+    const logoItemStyle = "relative flex items-center justify-center w-full max-w-[350px] h-80 flex-shrink-0 lg:w-[350px] lg:h-96";
+    const centeredTextStyle = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-lime-200 bg-opacity-50 h-full w-full rounded-lg p-4 lg:p-16 lg:pl-20 lg:pr-20";
     const titleTextStyle = "text-xl text-lime-950 font-bold text-center"; 
     const descriptionTextStyle = "text-xl2 text-lime-950 leading-relaxed max-w-full text-justify";
-    const linkStyle = "text-lime-300 underline mt-auto text-center"; 
-
-    // Référence pour l'élément de titre pour l'animation
+    const linkStyle = "text-lime-300 underline mt-auto text-center";
+    
+        // Référence pour l'élément de titre pour l'animation
     const titleRef = useRef(null);
     // État pour démarrer l'animation de la machine à écrire
     const [startTyping, setStartTyping] = useState(false);
@@ -84,22 +84,13 @@ const Portfolio = () => {
         }
     };
 
-    // Gestion du défilement pour désactiver les animations
-    const handleScroll = () => {
-        if (activeLogo !== null) {
-            setActiveLogo(null); // Réinitialise l'état `activeLogo` pour désactiver tous les logos
-        }
-    };
-
-    // Effet pour ajouter les écouteurs d'événements pour les clics extérieurs et le défilement
+    // Effet pour ajouter l'écouteur d'événements pour les clics extérieurs
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
-        window.addEventListener('scroll', handleScroll);
 
-        // Nettoyage des écouteurs d'événements pour éviter les fuites de mémoire
+        // Nettoyage de l'écouteur d'événements pour éviter les fuites de mémoire
         return () => {
             document.removeEventListener('click', handleClickOutside);
-            window.removeEventListener('scroll', handleScroll);
         };
     }, [activeLogo]);
 
