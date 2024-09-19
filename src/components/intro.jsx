@@ -82,7 +82,7 @@ const Intro = () => {
                 </div>
                 {/* Lien de téléchargement du CV */}
                 <div className='mt-2'>
-                    <a className={subtitleStyle} href='/files/cv.pdf' target="_blank" download="cv.pdf">Télécharger mon CV</a>
+                    <a className={subtitleStyle} href='/files/CV - Manuel ZUANON - Développeur web  .pdf' target="_blank" download="CV - Manuel ZUANON - Développeur web.pdf">Télécharger mon CV</a>
                 </div>
 
             </div>
